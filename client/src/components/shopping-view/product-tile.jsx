@@ -18,15 +18,15 @@ function ShoppingProductTile({
             className="w-full h-[300px] object-cover rounded-t-lg"
           />
           {product?.totalStock === 0 ? (
-            <Badge className="absolute top-2 left-2 bg-red-500 hover:bg-red-600">
+            <Badge className="absolute top-2 left-2 bg-destructive">
               Out Of Stock
             </Badge>
           ) : product?.totalStock < 10 ? (
-            <Badge className="absolute top-2 left-2 bg-red-500 hover:bg-red-600">
+            <Badge className="absolute top-2 left-2 bg-destructive">
               {`Only ${product?.totalStock} items left`}
             </Badge>
           ) : product?.salePrice > 0 ? (
-            <Badge className="absolute top-2 left-2 bg-red-500 hover:bg-red-600">
+            <Badge className="absolute top-2 left-2 bg-destructive">
               Sale
             </Badge>
           ) : null}
@@ -43,9 +43,8 @@ function ShoppingProductTile({
           </div>
           <div className="flex justify-between items-center mb-2">
             <span
-              className={`${
-                product?.salePrice > 0 ? "line-through" : ""
-              } text-lg font-semibold text-primary`}
+              className={`${product?.salePrice > 0 ? "line-through" : ""
+                } text-lg font-semibold text-primary`}
             >
               ${product?.price}
             </span>
